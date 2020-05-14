@@ -16,16 +16,34 @@ records = [
     {'source': '48-996383697', 'destination': '41-885633788', 'end': 1564627800, 'start': 1564626000}
 ]
 
+# Calculo tarifa diurna
+def dayFee(start_time,end_time):
+    return 0.36 + (((end_time - start_time).seconds//60)*0.09)
+
 # Calculo do custo por ligação
 def call_fee (start_time, end_time):
     
     start_time = datetime.fromtimestamp(start_time)
     end_time = datetime.fromtimestamp(end_time)
 
-    if((start_time.hour < 22 and end_time.hour < 22) and (start_time.hour >= 6 and end_time.hour >= 6)):
-        return 0.36 + (((end_time - start_time).seconds//60)*0.09)
-    elif ((start_time.hour >= 22 and end_time.hour >= 22) or (start_time.hour < 6 and end_time.hour < 6))
+    # Ligações com tarifa diurna
+    if start_time.hour > 6 and end_time.hour < 22:
+        return float(dayFee(start_time, end_time))
+
+    # Ligações com tarifa noturna
+    elif ((start_time.hour >= 22 and end_time.hour >= 22) or (start_time.hour < 6 and end_time.hour < 6)):
         return 0.36
+
+    # Tarifa mista
+    else: 
+        if (end_time.hour >= 22, end_time.minute >=1):
+            end_time = datetime(end_time.year, end_time.month, end_time.day, hour=22, minute=00, second=59)
+
+        if (start_time.hour < 6):
+            start_time = datetime(start_time.year, start_time.month, start_time.day, hour=6)
+
+        mix_fee = dayFee(start_time, end_time) + 0.36
+        return mix_fee
         
 
 # Adição da coluna 'cost' dentro do records
