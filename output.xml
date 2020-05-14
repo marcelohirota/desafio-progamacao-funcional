@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="6" name="pytest" skips="0" tests="8" time="0.637"><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="29" name="test_len" time="0.0049855709075927734"></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="33" name="test_1" time="0.0040111541748046875"></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="37" name="test_2" time="0.006975650787353516"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 4.32} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 4.68}
+<?xml version="1.0" encoding="utf-8"?><testsuite errors="0" failures="6" name="pytest" skips="0" tests="8" time="0.663"><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="29" name="test_len" time="0.003992795944213867"></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="33" name="test_1" time="0.002984285354614258"></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="37" name="test_2" time="0.006958484649658203"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 4.32} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 4.68}
   Differing items:
   {&apos;total&apos;: 4.32} != {&apos;total&apos;: 4.68}
   {&apos;source&apos;: &apos;48-996383697&apos;} != {&apos;source&apos;: &apos;48-999999999&apos;}
@@ -14,7 +14,7 @@
       - {&apos;source&apos;: &apos;48-996383697&apos;, &apos;total&apos;: 4.32}
       ?                  ----- ^              ^^
       + {&apos;source&apos;: &apos;48-999999999&apos;, &apos;total&apos;: 4.68}
-      ?                   ^^^^^^              ^^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="41" name="test_3" time="0.004015684127807617"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 3.33} == {&apos;source&apos;: &apos;41...&apos;total&apos;: 3.96}
+      ?                   ^^^^^^              ^^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="41" name="test_3" time="0.011971235275268555"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 3.33} == {&apos;source&apos;: &apos;41...&apos;total&apos;: 3.96}
   Differing items:
   {&apos;total&apos;: 3.33} != {&apos;total&apos;: 3.96}
   {&apos;source&apos;: &apos;48-999999999&apos;} != {&apos;source&apos;: &apos;41-885633788&apos;}
@@ -26,7 +26,7 @@
       {&apos;source&apos;: &apos;48-999999999&apos;} != {&apos;source&apos;: &apos;41-885633788&apos;}
       Full diff:
       - {&apos;source&apos;: &apos;48-999999999&apos;, &apos;total&apos;: 3.33}
-      + {&apos;source&apos;: &apos;41-885633788&apos;, &apos;total&apos;: 3.96}</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="45" name="test_4" time="0.003989219665527344"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 1.17} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 2.61}
+      + {&apos;source&apos;: &apos;41-885633788&apos;, &apos;total&apos;: 3.96}</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="45" name="test_4" time="0.009005546569824219"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 1.17} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 2.61}
   Common items:
   {&apos;source&apos;: &apos;48-996355555&apos;}
   Differing items:
@@ -44,7 +44,7 @@
       - {&apos;source&apos;: &apos;48-996355555&apos;, &apos;total&apos;: 1.17}
       ?                                      ---
       + {&apos;source&apos;: &apos;48-996355555&apos;, &apos;total&apos;: 2.61}
-      ?                                     +++</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="49" name="test_5" time="0.0049817562103271484"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 0.72} == {&apos;source&apos;: &apos;41...&apos;total&apos;: 1.53}
+      ?                                     +++</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="49" name="test_5" time="0.0069806575775146484"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 0.72} == {&apos;source&apos;: &apos;41...&apos;total&apos;: 1.53}
   Differing items:
   {&apos;total&apos;: 0.72} != {&apos;total&apos;: 1.53}
   {&apos;source&apos;: &apos;41-885633788&apos;} != {&apos;source&apos;: &apos;41-886383097&apos;}
@@ -60,7 +60,7 @@
       - {&apos;source&apos;: &apos;41-885633788&apos;, &apos;total&apos;: 0.72}
       ?                  -    --            ^ ^^
       + {&apos;source&apos;: &apos;41-886383097&apos;, &apos;total&apos;: 1.53}
-      ?                    + ++             ^ ^^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="53" name="test_6" time="0.005016803741455078"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 0.36} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 1.35}
+      ?                    + ++             ^ ^^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="53" name="test_6" time="0.005980491638183594"><failure message="AssertionError: assert {&apos;source&apos;: &apos;4...&apos;total&apos;: 0.36} == {&apos;source&apos;: &apos;48...&apos;total&apos;: 1.35}
   Differing items:
   {&apos;total&apos;: 0.36} != {&apos;total&apos;: 1.35}
   {&apos;source&apos;: &apos;41-886383097&apos;} != {&apos;source&apos;: &apos;48-996383697&apos;}
@@ -76,7 +76,7 @@
       - {&apos;source&apos;: &apos;41-886383097&apos;, &apos;total&apos;: 0.36}
       ?              ^ ^^    ^              ^  ^
       + {&apos;source&apos;: &apos;48-996383697&apos;, &apos;total&apos;: 1.35}
-      ?              ^ ^^    ^              ^  ^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="57" name="test_7" time="0.006011962890625"><failure message="AssertionError: assert [{&apos;source&apos;: &apos;...total&apos;: 0.36}] == [{&apos;source&apos;: &apos;4...total&apos;: 1.35}]
+      ?              ^ ^^    ^              ^  ^</failure></testcase><testcase classname="test_submit.TestChallenge1" file="test_submit.py" line="57" name="test_7" time="0.005983829498291016"><failure message="AssertionError: assert [{&apos;source&apos;: &apos;...total&apos;: 0.36}] == [{&apos;source&apos;: &apos;4...total&apos;: 1.35}]
   At index 1 diff: {&apos;source&apos;: &apos;48-996383697&apos;, &apos;total&apos;: 4.32} != {&apos;source&apos;: &apos;48-999999999&apos;, &apos;total&apos;: 4.68}
   Full diff:
   [{&apos;source&apos;: &apos;41-833333333&apos;, &apos;total&apos;: 4.77},

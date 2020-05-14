@@ -68,9 +68,11 @@ def classify_by_phone_number(records):
         final_results.append({'source': results[0], 'total': round(results[1],2)})
 
     return final_results
+    print(f'Final results: {final_results}')
 
 
-
+test = classify_by_phone_number(records)
+print(test)
 
 
 
