@@ -23,9 +23,8 @@ def call_fee (start_time, end_time):
     end_time = datetime.fromtimestamp(end_time)
 
     if((start_time.hour < 22 and end_time.hour < 22) and (start_time.hour >= 6 and end_time.hour >= 6)):
-        fee = 0.36 + (((end_time - start_time).seconds//60)*0.09)
-        return float(fee)
-    elif ((start_time.hour >= 22 and end_time.hour >= 22) or (start_time.hour < 6 and end_time.hour < 6)):
+        return 0.36 + (((end_time - start_time).seconds//60)*0.09)
+    elif ((start_time.hour >= 22 and end_time.hour >= 22) or (start_time.hour < 6 and end_time.hour < 6))
         return 0.36
         
 
@@ -41,11 +40,11 @@ def classify_by_phone_number(records):
 
     df_results = pd.DataFrame(get_costs(records))
 
-    group_results = df_results.groupby('source')['cost'].sum().reset_index().rename(columns={'cost':'total'}).sort_values(by='total', ascending=False)
+    ordered_results = df_results.groupby('source')['cost'].sum().reset_index().rename(columns={'cost':'total'}).sort_values(by='total', ascending=False)
 
-    sources = group_results['source'].values.tolist()
+    sources = ordered_results['source'].values.tolist()
 
-    totals = group_results['total_cost'].values.tolist()
+    totals = ordered_results['total'].values.tolist()
 
     for results in zip(sources, totals):
         final_results.append({'source': results[0], 'total': round(results[1],2)})
