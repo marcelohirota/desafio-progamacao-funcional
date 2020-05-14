@@ -40,15 +40,15 @@ def classify_by_phone_number(records):
 
     df_results = pd.DataFrame(get_costs(records))
 
-    group_results = df_results.groupby('source')['cost'].sum().reset_index().rename(columns={'cost':'total_cost'})\
-        .sort_values(by='total_cost', ascending=False)
+    group_results = df_results.groupby('source')['cost'].sum().reset_index().rename(columns={'cost':'total'})\
+        .sort_values(by='total', ascending=False)
 
     sources = [source for source in group_results['source']]
 
-    totals = [total for total in group_results['total_cost']]
+    totals = [total for total in group_results['total']]
 
     for results in zip(sources, totals):
-        final_results.append({'source': results[0], 'total_cost': round(results[1],2)})
+        final_results.append({'source': results[0], 'total': round(results[1],2)})
 
     return final_results
 
