@@ -46,6 +46,8 @@ Neste desafio você vai aprender:
 
 ## Requisitos
 
+O seu código deve levar em conta que o teste automático está configurado para o horário de Brasília
+
 Você precisará de python 3.6 (ou superior) e do gerenciador de pacotes pip.
 
 O recomendado é você utilizar um [ambiente virtual](https://pythonacademy.com.br/blog/python-e-virtualenv-como-programar-em-ambientes-virtuais). Para isto, execute os comandos como no exemplo abaixo:
