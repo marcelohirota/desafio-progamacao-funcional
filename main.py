@@ -73,7 +73,3 @@ def classify_by_phone_number(records):
 
 test = classify_by_phone_number(records)
 print(test)
-
-
-
-
