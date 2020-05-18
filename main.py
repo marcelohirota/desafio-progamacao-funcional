@@ -1,5 +1,6 @@
 from datetime import datetime
 import pandas as pd
+import pytz
 
 records = [
     {'source': '48-996355555', 'destination': '48-666666666', 'end': 1564610974, 'start': 1564610674},
@@ -16,15 +17,18 @@ records = [
     {'source': '48-996383697', 'destination': '41-885633788', 'end': 1564627800, 'start': 1564626000}
 ]
 
+FIXFEE = 0.36
+
 # Calculo tarifa diurna
 def dayFee(start_time,end_time):
-    return 0.36 + (((end_time - start_time).seconds//60)*0.09)
+    return FIXFEE + (((end_time - start_time).seconds//60)*0.09)
 
 # Calculo do custo por ligação
 def call_fee (start_time, end_time):
     
-    start_time = datetime.fromtimestamp(start_time)
-    end_time = datetime.fromtimestamp(end_time)
+    # Setando a timezone para o horário de Brasília
+    start_time = datetime.fromtimestamp(start_time, tz= pytz.timezone('Brazil/East'))
+    end_time = datetime.fromtimestamp(end_time, tz= pytz.timezone('Brazil/East'))
 
     # Ligações com tarifa diurna
     if start_time.hour > 6 and end_time.hour < 22:
@@ -32,7 +36,7 @@ def call_fee (start_time, end_time):
 
     # Ligações com tarifa noturna
     elif ((start_time.hour >= 22 and end_time.hour >= 22) or (start_time.hour < 6 and end_time.hour < 6)):
-        return 0.36
+        return float(FIXFEE)
 
     # Tarifa mista
     else: 
@@ -42,8 +46,7 @@ def call_fee (start_time, end_time):
         if (start_time.hour < 6):
             start_time = datetime(start_time.year, start_time.month, start_time.day, hour=6)
 
-        mix_fee = dayFee(start_time, end_time) + 0.36
-        return mix_fee
+        return dayFee(start_time, end_time)
         
 
 # Adição da coluna 'cost' dentro do records
@@ -67,9 +70,7 @@ def classify_by_phone_number(records):
     for results in zip(sources, totals):
         final_results.append({'source': results[0], 'total': round(results[1],2)})
 
-    return final_results
     print(f'Final results: {final_results}')
+    return final_results
 
-
-test = classify_by_phone_number(records)
-print(test)
+classify_by_phone_number(records)
