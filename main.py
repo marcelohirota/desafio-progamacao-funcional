@@ -73,18 +73,11 @@ def dayFee(start_time, end_time):
 
     return FIXFEE + (((end_time - start_time).seconds//60)*0.09)
 
-# Calculo do custo por ligação
+# Função para descobrir qual é a tarifa utilizada
 
 
-def call_fee(start_time, end_time):
-
-    # Setando a timezone para o horário de Brasília
-    start_time = datetime.fromtimestamp(
-        start_time, tz=pytz.timezone('Brazil/East'))
-    end_time = datetime.fromtimestamp(
-        end_time, tz=pytz.timezone('Brazil/East'))
-
-    # Ligações com tarifa diurna
+def call_period(start_time, end_time):
+ # Ligações com tarifa diurna
     if start_time.hour > 6 and end_time.hour < 22:
         return float(dayFee(start_time, end_time))
 
@@ -104,8 +97,21 @@ def call_fee(start_time, end_time):
 
         return dayFee(start_time, end_time)
 
+# Calculo do custo por ligação
+
+
+def call_fee(start_time, end_time):
+
+    # Setando a timezone para o horário de Brasília
+    start_time = datetime.fromtimestamp(
+        start_time, tz=pytz.timezone('Brazil/East'))
+    end_time = datetime.fromtimestamp(
+        end_time, tz=pytz.timezone('Brazil/East'))
+    call_period(start_time, end_time)
 
 # Adição da coluna 'cost' dentro do records
+
+
 def get_costs(records):
     for calls in records:
         calls.update({'cost': call_fee(calls['start'], calls['end'])})
