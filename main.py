@@ -107,7 +107,7 @@ def call_fee(start_time, end_time):
         start_time, tz=pytz.timezone('Brazil/East'))
     end_time = datetime.fromtimestamp(
         end_time, tz=pytz.timezone('Brazil/East'))
-    call_period(start_time, end_time)
+    return float(call_period(start_time, end_time))
 
 # Adição da coluna 'cost' dentro do records
 
